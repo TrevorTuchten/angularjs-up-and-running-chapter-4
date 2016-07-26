@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <title>Example 8 - Nested-Forms</title>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<form novalidate name="myForm">
+
+    <input type="text"
+           class="username"
+           name="uname"
+           ng-model="ctrl.user.username"
+           required=""
+           placeholder="Username"
+           ng-minlength="4" />
+    <input type="password"
+           class="password"
+           name="pwd"
+           ng-model="ctrl.user.password"
+           placeholder="Password"
+           required="" />
+
+    <ng-form name="profile">
+
+        <input type="text"
+               name="firstName"
+               ng-model="ctlr.user.profile.firstName"
+               placeholder="First Name"
+               required>
+        <input type="text"
+               name="middleName"
+               ng-model="ctlr.user.profile.middleName"
+               placeholder="Middle Name"
+               required>
+        <input type="date"
+               name="dob"
+               placeholder="Date Of Birth"
+               ng-model="ctrl.user.profile.dob">
+
+    </ng-form>
+
+    <span ng-show="myForm.profile.$invalid">
+        Please fill out the profile information
+    </span>
+
+    <input type="submit"
+           value="Submit"
+           ng-disabled="myForm.$invalid"/>
+</form>
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+</body>
+</html>
