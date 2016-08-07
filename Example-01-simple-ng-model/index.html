@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="notesApp" ng-cloak>
+<html lang="en" ng-app="notesApp">
 <head>
     <meta charset="UTF-8">
     <title>Example 1 - Simple-ng-model</title>
@@ -9,18 +9,18 @@
         }
     </style>
 </head>
-<body ng-controller="MainCtrl as ctrl">
+<body ng-controller="MainCtrl as ctrl" ng-cloak>
 
-<input type="text" ng-model="ctrl.username"/>
-You typed {{ctrl.username}}
+<input type="text"
+       ng-model="ctrl.username"/> You typed {{ctrl.username}}
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript">
-
-    angular.module('notesApp', []).controller('MainCtrl', [function () {
-        this.username = 'nothing';
-    }]);
-
+    angular.module('notesApp', [])
+            .controller('MainCtrl', [function () {
+                var self = this;
+                self.username = 'Something';
+            }]);
 </script>
 </body>
 </html>
