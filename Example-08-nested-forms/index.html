@@ -20,36 +20,36 @@
             ng-model="ctrl.user.password"
             placeholder="Password"
             required="" />
+    <br />
 
     <ng-form name="profile">
         <input type="text"
                 name="firstName"
-                ng-model="ctlr.user.profile.firstName"
                 placeholder="First Name"
+                ng-model="ctrl.user.profile.firstName"
                 required>
         <input type="text"
-                name="middleName"
-                ng-model="ctlr.user.profile.middleName"
+                name="middleNamme"
                 placeholder="Middle Name"
-                required>
+                ng-model="ctrl.user.profile.middleName">
         <input type="text"
                 name="lastName"
                 placeholder="Last Name"
-                ng-model="ctrl.user.profile.lastName"
-                required>
+                ng-model="ctrl.user.profile.lastName">
+                required
         <input type="date"
                 name="dob"
-                placeholder="Date Of Birth"
-                ng-model="ctrl.user.profile.dob">
+                placeholder="Date of Birth"
+                ng-model="ctrl.user.profile.dob"
+                required>
     </ng-form>
 
     <span ng-show="myForm.profile.$invalid">
         Please fill out the profile information
     </span>
-
     <input type="submit"
-           value="Submit"
-           ng-disabled="myForm.$invalid"/>
+            value="Submit"
+            ng-disabled="myForm.$invalid"/>
 </form>
 
 <script src="bower_components/angular/angular.min.js"></script>
