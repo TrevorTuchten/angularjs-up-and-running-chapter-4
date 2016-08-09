@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="notesApp" ng-cloak>
+<html lang="en" ng-app="notesApp">
 <head>
     <meta charset="UTF-8">
-    <title>Example 9 - Ceckbox-Example</title>
+    <title>Example 9 - Checkbox-Example</title>
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
@@ -16,26 +16,38 @@
         <div ng-repeat="sport in ctrl.sports">
             <label ng-bind="sport.label"></label>
             <div>
-            With Binding:
-            <input type="checkbox"
-                   ng-model="sport.selected"
-                   ng-true-value="YES"
-                   ng-false-value="NO">
-            </div>
-            <div>
-                Using ng-checked
+                With Binding:
                 <input type="checkbox"
-                       ng-checked="sport.selected === 'YES'">
+                        ng-model="sport.selected"
+                        ng-true-value="YES"
+                        ng-false-value="NO">
             </div>
             <div>
-            Current state: {{sport.selected}}
+                Using ng-checked:
+                <input type="checkbox"
+                        ng-checked="sport.selected === 'YES'">
+            </div>
+            <div ng-cloak>
+                Current State: {{sport.selected}}
             </div>
         </div>
     </div>
 
+    <div ng-init="{gender: 'female'}">
+        <input type="radio"
+                name="gender"
+                ng-model="user.gender"
+                value="male">
+        <input type="radio"
+                name="gender"
+                ng-model="user.gender"
+                value="female">
+    </div>
+
 <script src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript">
-        angular.module('notesApp', []).controller('MainCtrl', [function () {
+        angular.module('notesApp', [])
+                .controller('MainCtrl', [function () {
             var self = this;
             self.sports = [
                 {label: 'Basketball', selected: 'YES'},
