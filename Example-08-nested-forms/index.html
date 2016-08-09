@@ -35,15 +35,21 @@
         <input type="text"
                 name="lastName"
                 placeholder="Last Name"
-                ng-model="ctrl.user.profile.lastName">
-                required
+                ng-model="ctrl.user.profile.lastName"
+                required>
         <input type="date"
                 name="dob"
                 placeholder="Date of Birth"
                 ng-model="ctrl.user.profile.dob"
                 required>
+        <textarea name="myTextArea"
+                  ng-model="ctrl.user.profile.myTextArea"
+                  cols="30"
+                  rows="1"
+                  placeholder="Text Area"
+                  required>
+        </textarea>
     </ng-form>
-
     <span ng-show="myForm.profile.$invalid">
         Please fill out the profile information
     </span>
@@ -51,7 +57,6 @@
             value="Submit"
             ng-disabled="myForm.$invalid"/>
 </form>
-
 <script src="bower_components/angular/angular.min.js"></script>
 </body>
 </html>
