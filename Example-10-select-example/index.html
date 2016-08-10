@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="notesApp" ng-cloak>
+<html lang="en" ng-app="notesApp">
 <head>
     <meta charset="UTF-8">
     <title>Example 10 - Select-Example</title>
@@ -11,31 +11,33 @@
 </head>
 <body ng-controller="MainCtrl as ctrl">
 
-    <div>
-        <select ng-model="ctrl.selectedCountryId"
+    <div ng-cloak>
+        <select ng-model="ctrl.selectCountryId"
                 ng-options="c.id as c.label for c in ctrl.countries">
         </select>
-        Selected Country ID : {{ctrl.selectedCountryId}}
+        Select Country ID : {{ctrl.selectedCountryId}}
     </div>
 
-    <div>
-        <select ng-model="ctrl.selectedCountry"
-                ng-options="c.label for c in ctrl.countries">
+    <div ng-cloak>
+        <select ng-model="ctrl.selectedCounrty"
+                ng-options="c.label for c in ctrl.countries track by c.id">
         </select>
         Selected Country : {{ctrl.selectedCountry}}
     </div>
 
 <script src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript">
-        angular.module('notesApp', []).controller('MainCtrl', [function () {
-            this.countries = [
-                {label: 'USA', id: 1},
-                {label: 'India', id: 2},
-                {label: 'Other', id: 3}
-            ];
-            this.selectedCountryId = 1;
-            this.selectedCountry = this.countries[1];
-        }]);
+        angular.module('notesApp', [])
+                .controller('MainCtrl', [function () {
+                    var self = this;
+                    self.countries = [
+                        {label: 'USA', id: 1},
+                        {label: 'India', id: 2},
+                        {label: 'Other', id: 3}
+                    ];
+                    self.selectedCountryId = 2;
+                    self.selectedCountry = self.countries[1];
+                }]);
     </script>
 </body>
 </html>
